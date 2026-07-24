@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Commit"
+  short_description: "Review, split, and create verifiable Git commits"
+  default_prompt: "Use $git-commit to inspect the current Git changes, preserve staging boundaries, follow repository conventions, and create precise, verifiable commits."
