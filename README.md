@@ -13,13 +13,11 @@ A collection of reusable agent skills for common software development workflows.
 Install all available skills:
 
 ```bash
-npx skills@latest add <owner>/<repo>
+npx skills@latest add mystique/skills
 ```
 
 Install a specific skill:
 
 ```bash
-npx skills@latest add <owner>/<repo>@git-commit
+npx skills@latest add mystique/skills --skill git-commit
 ```
-
-Replace `<owner>/<repo>` with the GitHub repository path.
