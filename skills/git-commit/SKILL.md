@@ -85,10 +85,11 @@ Use recent history and repository guidance to determine:
 - subject style and typical length
 - whether Conventional Commits are used
 - accepted types and scopes
-- whether bodies, trailers, issue references, or emoji are customary
+- whether trailers, issue references, or emoji are customary
 - whether commit signing or a commit template is required
 
 Prefer a consistent repository convention over this skill's fallback style.
+Prefer including a body even when recent history is often subject-only, unless repository guidance forbids bodies.
 
 ### 5. Form logical commit groups
 
@@ -118,7 +119,7 @@ If safe grouping requires changing an existing staged set, explain the conflict 
 
 ### 7. Write the message
 
-Describe the committed diff, not the broader working tree. The subject should state the primary outcome; the body should explain important motivation, constraints, behavior, or migration details that are not obvious from the subject.
+Describe the committed diff, not the broader working tree. The subject should state the primary outcome. Include a body whenever possible: explain motivation, constraints, behavior, or migration details that are not obvious from the subject. Omit the body only when the change is trivial and the subject is fully self-explanatory.
 
 ### 8. Preview or commit
 
@@ -126,7 +127,7 @@ Describe the committed diff, not the broader working tree. The subject should st
 - Preview: show each proposed group, its paths, and the exact full message; state that no repository changes were made.
 - Execute: create each commit with its finalized message.
 
-For a subject-only message, `git commit -m` is sufficient. For multiline messages, prefer writing the exact message to a temporary file outside the repository and using `git commit -F <message-file>` to preserve paragraph and trailer formatting. Remove the temporary file afterward.
+Prefer a multiline message written to a temporary file outside the repository and committed with `git commit -F <message-file>` so paragraph and trailer formatting is preserved. Remove the temporary file afterward. Use `git commit -m` only for a rare subject-only message.
 
 ### 9. Handle hook results
 
@@ -150,7 +151,7 @@ When no repository-specific format exists, use Conventional Commits 1.0.0:
 ```text
 <type>[optional scope][optional !]: <description>
 
-[optional body]
+[body]
 
 [optional footer(s)]
 ```
@@ -179,8 +180,9 @@ Subject rules:
 
 Body rules:
 
-- Add a body only when it provides useful context not captured by the subject.
-- Explain why, behavior, constraints, risk, or migration impact rather than restating file changes.
+- Include a body by default. Write at least one short paragraph covering motivation, behavior, constraints, risk, or migration impact that the subject does not already capture.
+- Omit the body only when the change is trivial and the subject is fully self-explanatory.
+- Explain why and impact rather than restating file changes or repeating the subject.
 - Use a short paragraph for one explanation or bullets for genuinely parallel points; do not force a fixed number of bullets.
 
 Breaking changes must be explicit. Use `!` in the subject and add a `BREAKING CHANGE:` footer when migration or impact needs explanation.
@@ -196,13 +198,16 @@ Emoji are opt-in. Use them only when explicitly requested or consistently presen
 
 ## Examples
 
-Subject only:
+Typical message:
 
 ```text
 fix(auth): reject expired refresh tokens
+
+Return 401 when a refresh token is past its expiry instead of issuing a
+new access token.
 ```
 
-With useful context:
+Why and impact:
 
 ```text
 fix(cache): prevent stale reads after account updates

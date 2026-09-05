@@ -6,7 +6,7 @@ A collection of reusable agent skills for common software development workflows.
 
 | Skill | Description |
 | --- | --- |
-| [`git-commit`](skills/git-commit/SKILL.md) | Create clear, well-scoped, and verifiable Git commits. |
+| [`git-commit`](skills/git-commit/SKILL.md) | Review, split, and create verifiable Git commits. Distinguishes message-only, preview, and execute; preserves staging boundaries; prefers a Conventional Commits message with a body. |
 
 ## Installation
 
