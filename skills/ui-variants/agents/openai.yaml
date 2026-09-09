@@ -1,0 +1,6 @@
+interface:
+  display_name: "UI Variants"
+  short_description: "Build and compare genuinely different UI variants behind a visual picker"
+  default_prompt: "Use $ui-variants to explore multiple genuinely different versions of the described UI piece, render them behind a visual picker, and promote the selected variant."
+policy:
+  allow_implicit_invocation: false
