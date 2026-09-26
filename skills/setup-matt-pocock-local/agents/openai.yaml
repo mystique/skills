@@ -1,0 +1,6 @@
+interface:
+  display_name: "Setup Matt Pocock Local"
+  short_description: "Set up AGENTS.md, local issues, and default triage labels"
+  default_prompt: "Use $setup-matt-pocock-local to run setup-matt-pocock-skills with AGENTS.md, local Markdown issues, and all default triage labels pre-approved."
+policy:
+  allow_implicit_invocation: false
