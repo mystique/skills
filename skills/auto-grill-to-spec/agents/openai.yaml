@@ -1,0 +1,4 @@
+interface:
+  display_name: "Auto Grill to Spec"
+  short_description: "Auto-answer design questions and write a local spec"
+  default_prompt: "Use $auto-grill-to-spec to run grill-with-docs with recommended answers automatically accepted, then use to-spec to save a local spec; produce documents only, without confirmation prompts or implementation."
