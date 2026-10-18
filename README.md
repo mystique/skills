@@ -1,6 +1,6 @@
 # Agent Skills
 
-Reusable agent skills for Git workflows, product UI design, UI exploration, and spec writing. Each skill is a folder under `skills/` with a `SKILL.md` that agents load on demand.
+Reusable agent skills for Git workflows, code refactoring, product UI design, UI exploration, and spec writing. Each skill is a folder under `skills/` with a `SKILL.md` that agents load on demand.
 
 ## Available Skills
 
@@ -11,6 +11,7 @@ Reusable agent skills for Git workflows, product UI design, UI exploration, and 
 | [`ui-variants`](skills/ui-variants/SKILL.md) | Explicit only | Build genuinely different versions of one UI piece behind a visual picker, then promote the chosen one and remove the prototype. |
 | [`setup-matt-pocock-local`](skills/setup-matt-pocock-local/SKILL.md) | Explicit only | Configure Matt Pocock's engineering skills with a root `AGENTS.md`, local Markdown issues, and default triage labels. |
 | [`auto-grill-to-spec`](skills/auto-grill-to-spec/SKILL.md) | Implicit allowed | Run `grill-with-docs` with recommended answers auto-accepted, then write a local spec. Produces documents only; no implementation. |
+| [`refactor`](skills/refactor/SKILL.md) | Implicit allowed | Improve maintainability without changing behavior. Small, test-backed steps for code smells, large functions, and weak types. Not a rewrite. |
 
 ## Installation
 
@@ -28,6 +29,7 @@ npx skills@latest add mystique/skills --skill interface-design
 npx skills@latest add mystique/skills --skill ui-variants
 npx skills@latest add mystique/skills --skill setup-matt-pocock-local
 npx skills@latest add mystique/skills --skill auto-grill-to-spec
+npx skills@latest add mystique/skills --skill refactor
 ```
 
 `setup-matt-pocock-local` and `auto-grill-to-spec` depend on skills from other repositories; see their sections below.
@@ -88,6 +90,12 @@ Output, all under `.scratch/<topic>/`:
 - `CONTEXT.md` and `docs/adr/`: updated only when the session produces substantive terms or decisions
 
 The skill makes no commits, publishes no issues, and starts no implementation.
+
+### refactor
+
+Improves structure and readability without changing external behavior. Gradual cleanup, not a rewrite.
+
+Ask to clean up, refactor, or improve structure, or run `/refactor` (`$refactor` in Codex). Each change is one small step followed by tests. It does not mix refactoring with feature work, and it writes tests before touching untested production code.
 
 ## Repository Layout
 

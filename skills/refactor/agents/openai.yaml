@@ -1,0 +1,6 @@
+interface:
+  display_name: "Refactor"
+  short_description: "Restructure code without changing behavior"
+  default_prompt: "Use $refactor to improve maintainability without changing behavior: extract functions, break down large units, and clear code smells in small, test-backed steps."
+policy:
+  allow_implicit_invocation: true
