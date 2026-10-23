@@ -1,0 +1,6 @@
+interface:
+  display_name: "Award Bar"
+  short_description: "Apply the award-tier site_design ruleset as written"
+  default_prompt: "Use $award-bar. Follow the ruleset in the skill as written."
+policy:
+  allow_implicit_invocation: true

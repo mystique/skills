@@ -1,6 +1,6 @@
 # Agent Skills
 
-Reusable agent skills for Git workflows, code refactoring, product UI design, UI exploration, and spec writing. Each skill is a folder under `skills/` with a `SKILL.md` that agents load on demand.
+Reusable agent skills for Git workflows, code refactoring, product UI design, award-tier page visuals, UI exploration, and spec writing. Each skill is a folder under `skills/` with a `SKILL.md` that agents load on demand.
 
 ## Available Skills
 
@@ -8,6 +8,7 @@ Reusable agent skills for Git workflows, code refactoring, product UI design, UI
 | --- | --- | --- |
 | [`git-commit`](skills/git-commit/SKILL.md) | Implicit allowed | Create, preview, or split Git commits. Follows repository conventions, preserves existing staging, verifies each commit, and never adds agent attribution. |
 | [`interface-design`](skills/interface-design/SKILL.md) | Implicit allowed | Craft-first design for product UI: dashboards, admin panels, SaaS apps, tools, and data interfaces. Not for marketing pages or landing pages. |
+| [`award-bar`](skills/award-bar/SKILL.md) | Implicit allowed | Raise a page or site to award-tier visual quality against Awwwards, Webby, and FWA. Apply the ruleset as written; judge the rendered page. |
 | [`ui-variants`](skills/ui-variants/SKILL.md) | Explicit only | Build genuinely different versions of one UI piece behind a visual picker, then promote the chosen one and remove the prototype. |
 | [`setup-matt-pocock-local`](skills/setup-matt-pocock-local/SKILL.md) | Explicit only | Configure Matt Pocock's engineering skills with a root `AGENTS.md`, local Markdown issues, and default triage labels. |
 | [`auto-grill-to-spec`](skills/auto-grill-to-spec/SKILL.md) | Implicit allowed | Run `grill-with-docs` with recommended answers auto-accepted, then write a local spec. Produces documents only; no implementation. |
@@ -26,6 +27,7 @@ Install a specific skill:
 ```bash
 npx skills@latest add mystique/skills --skill git-commit
 npx skills@latest add mystique/skills --skill interface-design
+npx skills@latest add mystique/skills --skill award-bar
 npx skills@latest add mystique/skills --skill ui-variants
 npx skills@latest add mystique/skills --skill setup-matt-pocock-local
 npx skills@latest add mystique/skills --skill auto-grill-to-spec
@@ -62,6 +64,12 @@ Explicit invocation only. Production code is untouched until you promote a varia
 | `keep <variant>, leave the picker` | Promote and keep the prototype surface |
 
 The picker is a fixed bottom-center pill specified in [`PICKER.md`](skills/ui-variants/PICKER.md). Keys: `1`–`N` or `←`/`→` switch variants, `R` replays the animation. The selected variant is stored in the `?v=` URL parameter.
+
+### award-bar
+
+Implicit during UI/UX design, while building or finishing a page or site, or when you ask for award-tier, Awwwards, Webby, or FWA quality. Also `/award-bar` (`$award-bar` in Codex).
+
+The ruleset in [`SKILL.md`](skills/award-bar/SKILL.md) is the instruction. Do not replace it with another checklist. It stays in force until a full pass of the rendered page shows no remaining gap on typography, whitespace, hierarchy, color, motion, micro-interaction, responsive behavior, or originality, compared with named benchmark entries. A source-only pass does not count.
 
 ### setup-matt-pocock-local
 
